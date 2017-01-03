@@ -1,0 +1,22 @@
+{
+  "name": "coa-node-logging",
+  "version": "1.0.1",
+  "description": "Common interface for Node logging",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityofasheville/coa-node-logging.git"
+  },
+  "author": "Eric Jackson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cityofasheville/coa-node-logging/issues"
+  },
+  "homepage": "https://github.com/cityofasheville/coa-node-logging#readme",
+  "dependencies": {
+    "bunyan": "^1.8.5"
+  }
+}
