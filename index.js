@@ -3,9 +3,9 @@ const bunyan = require('bunyan');
 function createLogger(name, logFile) {
   let logger;
   if (logFile) {
-    logger = bunyan.createLogger({ name: 'COAProcessing', streams: [{ level: 'info', path: args.options.log }] });
+    logger = bunyan.createLogger({ name, streams: [{ level: 'info', path: logFile }] });
   } else {
-    logger = bunyan.createLogger({ name: 'COAProcessing', stream: process.stdout, level: 'info' });
+    logger = bunyan.createLogger({ name, stream: process.stdout, level: 'info' });
   }
   return logger;
 }
