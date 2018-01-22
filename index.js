@@ -15,7 +15,7 @@ class Logger {
   error(message, tag = null, details = {}) {
     if (process.env.debugging === 'true') {
       console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
-      if (Object.keys(details) > 0) {
+      if (Object.keys(details).length > 0) {
         console.log(`Details: ${JSON.stringify(details)}`);
       }
     } else {
@@ -26,7 +26,7 @@ class Logger {
   info(message, tag = null, details = {}) {
     if (process.env.debugging === 'true') {
       console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
-      if (Object.keys(details) > 0) {
+      if (Object.keys(details).length > 0) {
         console.log(`Details: ${JSON.stringify(details)}`);
       }
     } else {
@@ -37,7 +37,7 @@ class Logger {
   warn(message, tag = null, details = {}) {
     if (process.env.debugging === 'true') {
       console.log(`Warn ${tag ? '('+tag+')' : ''}: ${message}`);
-      if (Object.keys(details) > 0) {
+      if (Object.keys(details).length > 0) {
         console.log(`Details: ${JSON.stringify(details)}`);
       }
     } else {
