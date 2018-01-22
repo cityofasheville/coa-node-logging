@@ -17,6 +17,9 @@ class Logger {
   }
 
   info(error_type, message, details) {
+    if (process.env.debugging) {
+      console.log(`Info message of type ${error_type}: ${message}`);
+    }
     this.logger.info({ details: Object.assign({}, details, { error_type }) }, message);
   }
 
