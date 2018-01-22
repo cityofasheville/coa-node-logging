@@ -14,9 +14,9 @@ class Logger {
 
   error(message, tag = null, details = {}) {
     if (process.env.debugging === 'true') {
-      console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
+      console.log(`Error ${tag ? '('+tag+')' : ''}: ${message}`);
       if (Object.keys(details).length > 0) {
-        console.log(`Details: ${JSON.stringify(details)}`);
+        console.log(`   Details: ${JSON.stringify(details)}`);
       }
     } else {
       this.logger.error({ details: Object.assign({}, details, { tag }) }, message);
@@ -27,7 +27,7 @@ class Logger {
     if (process.env.debugging === 'true') {
       console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
       if (Object.keys(details).length > 0) {
-        console.log(`Details: ${JSON.stringify(details)}`);
+        console.log(`   Details: ${JSON.stringify(details)}`);
       }
     } else {
       this.logger.info({ details: Object.assign({}, details, { tag }) }, message);
@@ -38,7 +38,7 @@ class Logger {
     if (process.env.debugging === 'true') {
       console.log(`Warn ${tag ? '('+tag+')' : ''}: ${message}`);
       if (Object.keys(details).length > 0) {
-        console.log(`Details: ${JSON.stringify(details)}`);
+        console.log(`   Details: ${JSON.stringify(details)}`);
       }
     } else {
       this.logger.warn({ details: Object.assign({}, details, { tag }) }, message);
