@@ -19,7 +19,7 @@ class Logger {
         console.log(`   Details: ${JSON.stringify(details)}`);
       }
     } else {
-      this.logger.error({ details: Object.assign({}, details, { tag }) }, message);
+      this.logger.error({ details: Object.assign({}, details, { severity: 'error', tag }) }, message);
     }
   }
 
@@ -30,7 +30,7 @@ class Logger {
         console.log(`   Details: ${JSON.stringify(details)}`);
       }
     } else {
-      this.logger.info({ details: Object.assign({}, details, { tag }) }, message);
+      this.logger.info({ details: Object.assign({}, details, { severity: 'info', tag }) }, message);
     }
   }
 
@@ -41,7 +41,7 @@ class Logger {
         console.log(`   Details: ${JSON.stringify(details)}`);
       }
     } else {
-      this.logger.warn({ details: Object.assign({}, details, { tag }) }, message);
+      this.logger.warn({ details: Object.assign({}, details, { severity: 'warn', tag }) }, message);
     }
   }
 }
