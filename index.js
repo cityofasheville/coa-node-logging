@@ -12,19 +12,28 @@ class Logger {
     }
   }
 
-  error(error_type, message, details) {
-    this.logger.error({ details: Object.assign({}, details, { error_type }) }, message);
-  }
-
-  info(error_type, message, details) {
-    if (process.env.debugging) {
-      console.log(`Info message of type ${error_type}: ${message}`);
+  error(message, tag = null, details = {}) {
+    if (process.env.debugging === 'true') {
+      console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
+    } else {
+      this.logger.error({ details: Object.assign({}, details, { tag }) }, message);
     }
-    this.logger.info({ details: Object.assign({}, details, { error_type }) }, message);
   }
 
-  warn(error_type, message, details) {
-    this.logger.warn({ details: Object.assign({}, details, { error_type }) }, message);
+  info(message, tag = null, details = {}) {
+    if (process.env.debugging === 'true') {
+      console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
+    } else {
+      this.logger.info({ details: Object.assign({}, details, { tag }) }, message);
+    }
+  }
+
+  warn(message, tag = null, details = {}) {
+    if (process.env.debugging === 'true') {
+      console.log(`Warn ${tag ? '('+tag+')' : ''}: ${message}`);
+    } else {
+      this.logger.warn({ details: Object.assign({}, details, { tag }) }, message);
+    }
   }
 }
 
