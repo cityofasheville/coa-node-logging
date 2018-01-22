@@ -12,7 +12,7 @@ class Logger {
     }
   }
 
-  error(message, tag = null, details = {}) {
+  error(message, details = {}, tag = null) {
     if (process.env.debugging === 'true') {
       console.log(`Error ${tag ? '('+tag+')' : ''}: ${message}`);
       if (Object.keys(details).length > 0) {
@@ -23,7 +23,7 @@ class Logger {
     }
   }
 
-  info(message, tag = null, details = {}) {
+  info(message, details = {}, tag = null) {
     if (process.env.debugging === 'true') {
       console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
       if (Object.keys(details).length > 0) {
@@ -34,7 +34,7 @@ class Logger {
     }
   }
 
-  warn(message, tag = null, details = {}) {
+  warn(message, details = {}, tag = null) {
     if (process.env.debugging === 'true') {
       console.log(`Warn ${tag ? '('+tag+')' : ''}: ${message}`);
       if (Object.keys(details).length > 0) {
