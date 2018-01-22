@@ -3,8 +3,6 @@ Common interface to logging for COA node scripts
 
 ## Usage
 
-### Create a logger
-
 ````
   const Logger = require('coa-node-logging');
   const logger = new Logger(name, logFile);
