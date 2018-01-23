@@ -4,6 +4,8 @@ Common interface to logging for COA node scripts
 ## Usage
 
 ````
+  const logFile = 'path-to-log-file';
+  const name = 'test-logger'; 
   const Logger = require('coa-node-logging');
   const logger = new Logger(name, logFile);
   const testObject = {
