@@ -1,6 +1,10 @@
 # coa-node-logging
 Common interface to logging for COA node scripts
 
+## Logging Standards
+
+City of Asheville node applications should follow the [logging guidelines](https://www.owasp.org/index.php/Logging_Cheat_Sheet#Which_events_to_log) from [The Open Web Application Security Project](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project) (OWASP).
+
 ## Usage
 
 ````
