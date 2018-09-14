@@ -26,7 +26,7 @@ If ```logFile``` is null, output will go to stdout.
 
 The standard output format for the logger (which is based on [bunyan](https://github.com/trentm/node-bunyan)) is JSON, however, if the environment variable 'debugging' is set to 'true', logging will be output to stdout in human-readable form.
 
-To view a readable version of the JSON output, specify an output file and then use the bunyan cli tool to read. Thus, if the output is in errors.log, then simply run:
+To view a readable version of the JSON output, specify an output file and then use the bunyan cli tool to read. Thus, if the output is in errors.log, simply run:
 ````
   ./node_modules/.bin/bunyan errors.log
 ````
