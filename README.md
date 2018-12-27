@@ -22,13 +22,12 @@ City of Asheville node applications should follow the [logging guidelines](https
 
 ````
 
-If ```logFile``` is null, output will go to stdout. 
-
-By default output will also be logged to the console. To suppress this, override the default value of the third parameter, `logToConsole`:
+If ```logFile``` is null, output will only go to stdout. By default output is always also be logged to the console. To suppress this, override the default value of the third parameter, `logToConsole`:
 
 ````
   const logger = new Logger(name, logFile, false);
 ````
+Note that setting ```logFile``` to null when the third parameter is also false means that no logging will be done.
 
 ## Installation
 Install with
