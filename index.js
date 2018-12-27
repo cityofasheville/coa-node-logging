@@ -3,19 +3,17 @@ const winston = require('winston');
 const consoleLogger = new winston.transports.Console();
 
 class Logger {
-  constructor(name, logFile) {
+  constructor(name, logFile, logToConsole=true) {
     this.name = name;
     this.logFile = logFile;
     this.logger = null;
     this.logger = winston.createLogger({
-      transports: [
-//          new winston.transports.Console(),
-      ]
+      transports: []
     });
     if (logFile !== null) {
       this.logger.add(new winston.transports.File({ filename: logFile }));
     }
-    if (true || process.env.debugging === 'true') {
+    if (logToConsole) {
       this.logger.add(consoleLogger);
     }
   }
