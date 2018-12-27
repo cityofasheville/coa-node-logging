@@ -1,6 +1,6 @@
 {
   "name": "coa-node-logging",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "Common interface for Node logging",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/cityofasheville/coa-node-logging#readme",
   "dependencies": {
-    "bunyan": "^1.8.5"
+    "bunyan": "^1.8.5",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "jest-cli": "^22.1.4"

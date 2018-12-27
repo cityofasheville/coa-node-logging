@@ -16,24 +16,21 @@ City of Asheville node applications should follow the [logging guidelines](https
     field1: 123,
     field2: "A string",
   };
-  logger.info('This is a message');
+  logger.error('This is a message');
   logger.info('This is a message with an object', { name1: 'value1', name2: 2 });
   logger.warn('This is a warning message');
-  logger.error('This is an error message + object + tag', testObject, 'Priority1');
+
 ````
 
-If ```logFile``` is null, output will go to stdout. 
+If ```logFile``` is null, output will only go to stdout. By default output is always also be logged to the console. To suppress this, override the default value of the third parameter, `logToConsole`:
 
-The standard output format for the logger (which is based on [bunyan](https://github.com/trentm/node-bunyan)) is JSON, however, if the environment variable 'debugging' is set to 'true', logging will be output to stdout in human-readable form.
-
-To view a readable version of the JSON output, specify an output file and then use the bunyan cli tool to read. Thus, if the output is in errors.log, simply run:
 ````
-  ./node_modules/.bin/bunyan errors.log
+  const logger = new Logger(name, logFile, false);
 ````
-
+Note that setting ```logFile``` to null when the third parameter is also false means that no logging will be done.
 
 ## Installation
 Install with
 ````
-  yarn add bunyan
+  npm install --save coa-node-logging
 ````
