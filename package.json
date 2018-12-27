@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/cityofasheville/coa-node-logging#readme",
   "dependencies": {
-    "bunyan": "^1.8.5"
+    "bunyan": "^1.8.5",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "jest-cli": "^22.1.4"

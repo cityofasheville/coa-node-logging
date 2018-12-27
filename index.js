@@ -1,48 +1,47 @@
-const bunyan = require('bunyan');
+const winston = require('winston');
+
+const consoleLogger = new winston.transports.Console();
 
 class Logger {
   constructor(name, logFile) {
     this.name = name;
     this.logFile = logFile;
     this.logger = null;
-    if (logFile) {
-      this.logger = bunyan.createLogger({ name, streams: [{ level: 'info', path: logFile }] });
-    } else {
-      this.logger = bunyan.createLogger({ name, stream: process.stdout, level: 'info' });
+    this.logger = winston.createLogger({
+      transports: [
+//          new winston.transports.Console(),
+      ]
+    });
+    if (logFile !== null) {
+      this.logger.add(new winston.transports.File({ filename: logFile }));
+    }
+    if (true || process.env.debugging === 'true') {
+      this.logger.add(consoleLogger);
     }
   }
 
   error(message, details = {}, tag = null) {
-    if (process.env.debugging === 'true') {
-      console.log(`Error ${tag ? '('+tag+')' : ''}: ${message}`);
-      if (Object.keys(details).length > 0) {
-        console.log(`${JSON.stringify({ "Details": details }, null, 2)}`);
-      }
-    } else {
-      this.logger.error({ details: Object.assign({}, details, { severity: 'error', tag }) }, message);
+    let msg = message;
+    if (Object.keys(details).length > 0) {
+      msg = { message, details };
     }
+    this.logger.error(msg);
   }
 
   info(message, details = {}, tag = null) {
-    if (process.env.debugging === 'true') {
-      console.log(`Info ${tag ? '('+tag+')' : ''}: ${message}`);
-      if (Object.keys(details).length > 0) {
-        console.log(`${JSON.stringify({ "Details": details }, null, 2)}`);
-      }
-    } else {
-      this.logger.info({ details: Object.assign({}, details, { severity: 'info', tag }) }, message);
+    let msg = message;
+    if (Object.keys(details).length > 0) {
+      msg = { message, details };
     }
+    this.logger.info(msg);
   }
 
   warn(message, details = {}, tag = null) {
-    if (process.env.debugging === 'true') {
-      console.log(`Warn ${tag ? '('+tag+')' : ''}: ${message}`);
-      if (Object.keys(details).length > 0) {
-        console.log(`${JSON.stringify({ "Details": details }, null, 2)}`);
-      }
-    } else {
-      this.logger.warn({ details: Object.assign({}, details, { severity: 'warn', tag }) }, message);
+    let msg = message;
+    if (Object.keys(details).length > 0) {
+      msg = { message, details };
     }
+    this.logger.warn(msg);
   }
 }
 
