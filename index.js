@@ -1,17 +1,33 @@
 const winston = require('winston');
+require('winston-daily-rotate-file');
+
 
 const consoleLogger = new winston.transports.Console();
 
 class Logger {
-  constructor(name, logFile, logToConsole=true) {
+  constructor(name, logFile, logToConsole=false) {
     this.name = name;
     this.logFile = logFile;
     this.logger = null;
     this.logger = winston.createLogger({
       transports: []
     });
+  const rtransport = new winston.transports.DailyRotateFile({
+    filename: logFile,
+    datePattern: "YYYY-MM-DD",
+    zippedArchive: false,
+    maxSize: "10m",
+    maxFiles: "7d",
+    extention: "log",
+    symlinkName: logFile,
+});
+
     if (logFile !== null) {
-      this.logger.add(new winston.transports.File({ filename: logFile }));
+      this.logger.add(
+        winston.createLogger({
+          transports: [rtransport],
+        })
+      );
     }
     if (logToConsole) {
       this.logger.add(consoleLogger);
@@ -44,4 +60,3 @@ class Logger {
 }
 
 module.exports = Logger;
-
