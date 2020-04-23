@@ -1,11 +1,11 @@
-const Logger = require('./index');
+const Logger = require('./index')
 
-console.log('Starting');
+console.log('Starting')
 
-const outputFile = 'output.log';
+const outputFile = './output.log'
 
-const logger = new Logger('test', outputFile);
+const logger = new Logger('test', outputFile)
 
-logger.warn('Hello', { type: 'test', value: 33 });
-logger.warn('Goodbye');
-
+logger.warn('Hello', { type: 'test', value: 33 })
+logger.error('error', { type: 'error', value: 500 })
+logger.info('Goodbye')
