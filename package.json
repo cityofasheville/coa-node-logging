@@ -1,6 +1,6 @@
 {
   "name": "coa-node-logging",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Common interface for Node logging",
   "main": "index.js",
   "scripts": {
